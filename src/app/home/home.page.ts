@@ -8,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  showInput = false;
+
+  addTask() {
+    this.showInput = !this.showInput;
+  }
+
   constructor() {}
 
 }
