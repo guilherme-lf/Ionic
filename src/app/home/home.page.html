@@ -6,16 +6,35 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-list>
+  <ion-item-sliding *ngFor="let task of taskService.getTasks(); let i = index">
+    <ion-item *ngIf="!task.done">
+        <ion-label>{{task.value}}</ion-label>
+        <ion-checkbox slot="start" [(ngModel)]="task.done" ></ion-checkbox>
+      <ion-badge color="warning" *ngIf="task.date.getDate()">
+        {{task.date.getDate() + "/" + (task.date.getMonth()) + 1 + "/" + task.date.getFullYear()}}
+      </ion-badge>
+    </ion-item>
+
+    <ion-item-options side="end">
+      <ion-item-option color="sucess" >
+        <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+      </ion-item-option>
+
+      <ion-item-option color="danger" (click)="presentAlertPromptDelete(i)">
+        <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+      </ion-item-option>
+
+    </ion-item-options>
+  </ion-item-sliding>
+</ion-list>
+
 <ion-content>
-  <div class="button" (click)="addTask()">
+  <div class="button" (click)="presentAlertPromptAdd()">
     <ion-button shape="round" size="large">
      <ion-icon slot="icon-only" size="" name="add-outline"></ion-icon>
     </ion-button>
   </div>
-
-  <ion-item *ngIf="showInput">
-    <ion-input placeholder="Digite algo..."></ion-input>
-  </ion-item>
 
 </ion-content>
 
