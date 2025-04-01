@@ -11,11 +11,17 @@ import { ToastController } from '@ionic/angular';
 })
 export class HomePage {
 
+  type: string = "pending"
+
   constructor (
     public alertController: AlertController,
     public taskService: TaskService,
     public toastController: ToastController
   ) {}
+
+  ngOnInit() { 
+    this.taskService.setFromStorage();
+  }
 
   async presentAlertPromptAdd() {
     const alert = await this.alertController.create({

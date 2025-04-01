@@ -4,37 +4,68 @@
       Tarefas
     </ion-title>
   </ion-toolbar>
+
 </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-segment [(ngModel)]="type">
+    <ion-segment-button value="pending" layout="icon-start">
+      <ion-icon name="alert-circle"></ion-icon>
+      <ion-label>Pendentes</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="done" layout="icon-start">
+      <ion-icon name="checkmark-circle"></ion-icon>
+      <ion-label>Concluidas</ion-label>
+    </ion-segment-button>
+  </ion-segment>
 
-<ion-list>
-  <ion-item-sliding *ngFor="let task of taskService.getTasks(); let i = index">
-    <ion-item *ngIf="!task.done">
-        <ion-label>{{task.value}}</ion-label>
-        <ion-checkbox slot="start" [(ngModel)]="task.done" ></ion-checkbox>
-      <ion-badge color="warning" *ngIf="task.date.getDate()">
-        {{task.date.getDate() + "/" + (task.date.getMonth()) + 1 + "/" + task.date.getFullYear()}}
-      </ion-badge>
-    </ion-item>
+  <ion-list>
+    <ion-item-sliding *ngFor="let task of taskService.getTasks(); let i = index">
+      <ion-item *ngIf="!task.done">
+          <ion-label>{{task.value}}</ion-label>
+          <ion-checkbox slot="start" [(ngModel)]="task.done" ></ion-checkbox>
+        <ion-badge color="warning" *ngIf="task.date.getDate()">
+          {{task.date.getDate() + "/" + (task.date.getMonth()) + 1 + "/" + task.date.getFullYear()}}
+        </ion-badge>
+      </ion-item>
 
-    <ion-item-options side="end">
-      <ion-item-option color="sucess" >
-        <ion-icon name="create-outline" slot="icon-only"></ion-icon>
-      </ion-item-option>
+      <ion-item-options side="end">
+        <ion-item-options color="sucess">
+          <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+        </ion-item-options>
 
-      <ion-item-option color="danger" (click)="presentAlertPromptDelete(i)">
-        <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
-      </ion-item-option>
+        <ion-item-option color="danger" (click)="presentAlertPromptDelete(i)">
+          <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+        </ion-item-option>
 
-    </ion-item-options>
-  </ion-item-sliding>
-</ion-list>
+      </ion-item-options>
+    </ion-item-sliding> 
+  </ion-list>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="presentAlertPromptAdd()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
-<ion-content>
-  <div class="button" (click)="presentAlertPromptAdd()">
-    <ion-button shape="round" size="large">
-     <ion-icon slot="icon-only" size="" name="add-outline"></ion-icon>
-    </ion-button>
-  </div>
+ 
+</ion-content> 
 
-</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="('home')">
+          <ion-icon name="home"></ion-icon>
+        </ion-button>
+      </ion-buttons>
 
+      <ion-buttons slot="end">
+        <ion-button (click)="('tarefas')">
+          <ion-icon name="list"></ion-icon>
+        </ion-button>
+        
+        <ion-button (click)="('config')">
+          <ion-icon name="settings"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-footer>

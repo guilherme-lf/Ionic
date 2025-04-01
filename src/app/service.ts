@@ -5,8 +5,15 @@ import { Injectable } from "@angular/core";
 })
 export class TaskService {
 
+    
+
     private tasks: Task[] = [];
     constructor() {}
+
+    setFromStorage() {
+        console.log("Método setFromStorage chamado!");
+        // Código para carregar tarefas do storage...
+      }
 
     getTasks(): Task[] {
         return this.tasks;
