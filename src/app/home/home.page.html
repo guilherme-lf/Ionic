@@ -47,25 +47,49 @@
     </ion-fab-button>
   </ion-fab>
 
- 
 </ion-content> 
 
 <ion-footer>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button (click)="('home')">
-          <ion-icon name="home"></ion-icon>
-        </ion-button>
-      </ion-buttons>
+  <ion-tab-bar color="light">
+    <ion-tab-button tab="tasks" [routerLink]="['/home']"> 
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+  
+    <ion-tab-button tab="2">
+      <ion-icon name="document"></ion-icon>
+      <ion-label>Task</ion-label>
+    </ion-tab-button>
 
-      <ion-buttons slot="end">
-        <ion-button (click)="('tarefas')">
-          <ion-icon name="list"></ion-icon>
-        </ion-button>
-        
-        <ion-button (click)="('config')">
-          <ion-icon name="settings"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-toolbar>
+    <ion-tab-button tab="3">
+      <ion-icon name="calendar"></ion-icon>
+      <ion-label>Calendar</ion-label>
+    </ion-tab-button>
+  
+    <ion-tab-button tab="profile" [routerLink]="['/profile']">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Profile</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
   </ion-footer>
+
+  
+<!--
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="('home')">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="('tarefas')">
+        <ion-icon name="list"></ion-icon>
+      </ion-button>
+      
+      <ion-button (click)="('config')">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+-->  
