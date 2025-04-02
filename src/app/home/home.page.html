@@ -20,7 +20,7 @@
 
   <ion-list>
     <ion-item-sliding *ngFor="let task of taskService.getTasks(); let i = index">
-      <ion-item *ngIf="!task.done">
+      <ion-item *ngIf="(type === 'pending' && !task.done) || (type === 'done' && task.done)">
           <ion-label>{{task.value}}</ion-label>
           <ion-checkbox slot="start" [(ngModel)]="task.done" ></ion-checkbox>
         <ion-badge color="warning" *ngIf="task.date.getDate()">
