@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { ToastController } from '@ionic/angular';
 import { TaskService } from '../service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tasks',
@@ -11,9 +12,12 @@ import { TaskService } from '../service';
 })
 export class TasksPage implements OnInit {
 
-  type: string = "pending"
+ 
+  type: string = "pending";
 
   constructor (
+    
+    private activateRouted: ActivatedRoute,
     public alertController: AlertController,
     public taskService: TaskService,
     public toastController: ToastController
