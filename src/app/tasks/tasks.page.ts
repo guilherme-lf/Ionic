@@ -1,15 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
-import { TaskService } from '../service';
 import { ToastController } from '@ionic/angular';
+import { TaskService } from '../service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-tasks',
   standalone: false,
+  templateUrl: './tasks.page.html',
+  styleUrls: ['./tasks.page.scss'],
 })
-export class HomePage {
+export class TasksPage implements OnInit {
 
   type: string = "pending"
 

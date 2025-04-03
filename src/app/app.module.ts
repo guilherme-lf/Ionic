@@ -7,9 +7,9 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TaskService } from './service';
-import { Router } from 'express';
 
 @NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, RouterModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
@@ -18,3 +18,4 @@ import { Router } from 'express';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
