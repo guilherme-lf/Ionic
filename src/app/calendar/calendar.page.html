@@ -4,13 +4,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="calendar-container">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">calendar</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <!-- Wrapper para centralizar -->
+  <div class="calendar-wrapper">
+    <ion-datetime
+      value="2023-11-02T01:22:00"
+      [formatOptions]="{
+        time: { hour: '2-digit', minute: '2-digit' },
+        date: { day: '2-digit', month: 'long' }
+      }"
+    ></ion-datetime>
+  </div>
 </ion-content>
-
-
-<iframe src="https://calendar.google.com/calendar/embed?src=dompsychomilflow%40gmail.com&ctz=America%2FSao_Paulo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

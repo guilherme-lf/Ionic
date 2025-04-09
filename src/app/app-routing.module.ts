@@ -4,6 +4,11 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'profile',
+    pathMatch: 'full'
+  }, 
+  {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
   },
@@ -21,13 +26,11 @@ const routes: Routes = [
     loadChildren: () => import('./calendar/calendar.module').then( m => m.CalendarPageModule)
   },
   {
-    path: 'notes',
-    loadChildren: () => import('./notes/notes.module').then( m => m.NotesPageModule)
-  }
+    path: 'notas',
+    loadChildren: () => import('./notas/notas.module').then( m => m.NotasPageModule)
+  },
 
 ];
-
-
 
 @NgModule({
   imports: [

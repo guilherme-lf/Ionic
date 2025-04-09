@@ -1,5 +1,12 @@
-.google-calendar {
-    width: 100%;
-    height: 600px;
-    border: 0;
-  }
+.calendar-container {
+  --background: #121212; // ou o tema que você estiver usando
+}
+
+.calendar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* pega a altura total da viewport */
+  padding: 16px;
+  box-sizing: border-box;
+}

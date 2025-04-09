@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>notas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">notas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Minhas Notas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" scroll-y="true">
+
+  <!-- Formulário para nova nota -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nova Nota</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input [(ngModel)]="novaNota.titulo" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Conteúdo</ion-label>
+        <ion-textarea [(ngModel)]="novaNota.conteudo"></ion-textarea>
+      </ion-item>
+      <ion-button expand="block" (click)="adicionarNota()">Adicionar Nota</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de notas -->
+  <ion-list>
+    <ion-item-sliding *ngFor="let nota of notas; let i = index">
+      <ion-item>
+        <ion-label>
+          <h2>{{ nota.titulo }}</h2>
+          <p>{{ nota.conteudo }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="removerNota(i)">Excluir</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>
+
