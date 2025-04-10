@@ -34,8 +34,5 @@ export class ProfilePage implements AfterViewInit {
       this.map.invalidateSize();
     }, 300); // tempo suficiente para a tela abrir
 
-    // Exemplo: marcador simples
-    const marker = L.marker([-23.5505, -46.6333]).addTo(this.map);
-    marker.bindPopup('Você está aqui!').openPopup();
   }
 }
